@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator Docs</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+	<section class="calc-heading">
+		<div class="nav-div text-center">
+			<h1>calculator for beginners</h1>
+		</div>
+	</section>
+	<!-- heading -->
+	<section class="left-content">
+		<div class="designing-menu">
+			<div class="heading-menu">
+				<h4>designing</h4>
+			</div>
+			<div class="designing-menu-lists">
+				<ul>
+					<li><a href="#input-desc" class="pad-0">input</a></li>
+					<li><a href="#button-desc" class="pad-0">button</a></li>
+				</ul>
+			</div>
+
+			<div class="heading-menu">
+				<h4>functionality</h4>
+			</div>
+			<div class="designing-menu-lists">
+				<ul>
+					<li><a href="#funct-desc-input" class="pad-0">input</a></li>
+					<li><a href="#funct-desc-clear-button" class="pad-0">clear button</a></li>
+					<li><a href="#funct-desc-number-button" class="pad-0">button numbers</a></li>
+					<li><a href="#funct-desc-operator-button" class="pad-0">operator buttons</a></li>
+					<li><a href="#funct-desc-equal-button" class="pad-0">equal buttons</a></li>
+					<li><a href="#source-code-desc" class="pad-0">source code</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<!-- left-content -->
+	
+	<section class="main-content pad-0">
+		<div class="calc-container pad-0">
+			<input type="text" name="user-input" placeholder="0.00" class="user-input pad-0" onkeyup="user_input()" id="user-input">
+			<button class="btn-clear pad-0" onclick="btn_funct('clear')">clear</button>
+			<button class="btn-1 pad-0" onclick="btn_funct(1)">1</button>
+			<button class="btn-2 pad-0" onclick="btn_funct(2)">2</button>
+			<button class="btn-3 pad-0" onclick="btn_funct(3)">3</button>
+			<button class="btn-ADD pad-0" onclick="btn_funct('+')">+</button>
+			<button class="btn-4 pad-0" onclick="btn_funct(4)">4</button>
+			<button class="btn-5 pad-0" onclick="btn_funct(5)">5</button>
+			<button class="btn-6 pad-0" onclick="btn_funct(6)">6</button>
+			<button class="btn-min pad-0" onclick="btn_funct('-')">-</button>
+			<button class="btn-7 pad-0" onclick="btn_funct(7)">7</button>
+			<button class="btn-8 pad-0" onclick="btn_funct(8)">8</button>
+			<button class="btn-9 pad-0" onclick="btn_funct(9)">9</button>
+			<button class="btn-mult pad-0" onclick="btn_funct('*')">*</button>
+			<button class="btn-0 pad-0" onclick="btn_funct(0)">0</button>
+			<button class="btn-dot pad-0" onclick="btn_funct('.')">.</button>
+			<button class="btn-div pad-0" onclick="btn_funct('/')">/</button>
+			<button class="btn-eq pad-0" onclick="btn_funct('=')">=</button>
+		</div>
+		<div class="description">
+			<h3>description</h3>
+			<div id="input-desc" class="input-desc">
+				<h4>designing inputs</h4>
+				<p>
+					In designing inputs, i just only set the border to 0, and added a bottom-border which is 1px solid and a color of #ccc. And I also added a 10px padding, in order for it to expand. And for the text to align right just set the text-alignment to 'right'
+				</p>
+			</div>
+			<div id="button-desc" class="button-desc">
+				<h4>designing buttons</h4>
+				<p>
+					In designing the buttons, Well it's hard to make a button look on this way, except if you will use the grid layout. And that's what I used to accomplish that looks. first make a parent element; it's up to you wether you will choose a div element a section or anything it's your choice, Just make sure that in your css add a display: grid to that parent element, and add a grid-template-columns and set a four(4) values to achieve a four column looks. Read for more information <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Here!</a>
+				</p>
+			</div>
+			<div id="funct-desc-input" class="button-desc">
+				<h4>input functionality</h4>
+				<p>
+					To give a functionality to an input you need the onkeyup listener to get and process every inputs of your user. What I did is, first you need to get the value of your input element, and get the users entered value, but don't process it directly. For example if the user entered value is just a plain/simple expression who has only one(1) operator for ex. 1+1. you don't need to process it directly, instead you let your user 'click' the equal button. else if the user entered an expression like this '1+1+' that's the time that you will process it directly in the input listener. For me you can have any style to satisfy or process your user inputs. I implemented it for a reason because, I don't want my user enter/input multiple operator.We can still implement that, but for now we'll just try a simple with a little tricky or hard style.
+				</p>
+			</div>
+			<div id="funct-desc-clear-button" class="clear-button-desc">
+				<h4>clear button</h4>
+				<p>
+					The functionality for the clear buttons was so simple, you will need to set your Universal variable to empty string like this, And also your entry input.
+				</p>
+				<div class="clear-button-code pad-0">
+					<p class="clear-case">
+						<span>case</span>
+						<span class="case">'clear'</span>
+						<span>:</span>
+					</p>
+					<p>
+						<span>USER_PROCESSES</span>
+						<span>=</span>
+						<span>''</span>
+					</p>
+					<p>
+						<span>entry.value</span>
+						<span>=</span>
+						<span>USER_PROCESSES</span>
+					</p>
+					<p>
+						<span>break</span>
+						<span>;</span>
+					</p>
+				</div>
+			</div>
+			<div id="funct-desc-number-button" class="number-button-desc">
+				<h4>button numbers</h4>
+				<p>
+					The button action listener was also simple you just need to concatenate all your users inputs every, time they will click a button numbers. for ex. if a user click a button number 1 and 2. You just need to assign it to your GLOBAL variable, and don't forget to set also your input element's value based on the user button clicked.
+				</p>
+				<div class="number-button-code pad-0">
+					<p>
+						<span>case</span>
+						<span>1</span>
+						<span>:</span>
+					</p>
+					<p>
+						<span>USER_PROCESSES</span>
+						<span>+=</span>
+						<span>1</span>
+					</p>
+					<p>
+						<span>entry.value</span>
+						<span>=</span>
+						<span>USER_PROCESSES</span>
+					</p>
+					<p>
+						<span>break</span>
+						<span>;</span>
+					</p>
+				</div>
+				<!-- clear-button-code -->
+				<div class="number-button-code pad-0">
+					<p>
+						<span>case</span>
+						<span>2</span>
+						<span>:</span>
+					</p>
+					<p>
+						<span>USER_PROCESSES</span>
+						<span>+=</span>
+						<span>2</span>
+					</p>
+					<p>
+						<span>entry.value</span>
+						<span>=</span>
+						<span>USER_PROCESSES</span>
+					</p>
+					<p>
+						<span>break</span>
+						<span>;</span>
+					</p>
+				</div>
+				<!-- clear-button-code -->
+			</div>
+			<div id="funct-desc-operator-button" class="operator-desc">
+				<h4>operator buttons</h4>
+				<p>
+					This calculator can process one operator at a time, that's why we focus on detecting if user press/enter multiple operator, and if it does we will process that data, it's because for a reason that we will not allow an operator to stock. 
+				</p>
+				<div class="operator-button-code pad-0">
+					<div>
+						<span>function</span>
+						<span>compute_results</span>
+						<span>(</span>
+						<span>num1</span>
+						<span>,</span>
+						<span>num2</span>
+						<span>,</span>
+						<span>operator_type</span>
+						<span>){</span>
+						<p class="p-1">
+							<span>results</span>
+							<span>=</span>
+							<span>0.00</span>
+						</p>
+						<p class="p-2">
+							<span>if</span>
+							<span>(</span>
+							<span>operator_type</span>
+							<span>==</span>
+							<span>'+'</span>
+							<span>){</span>
+						</p>
+						<p class="p-3">
+							<span>num</span>
+							<span>=</span>
+							<span>parseFloat</span>
+							<span>(num1)</span>
+						</p>
+						<p class="p-4">
+							<span>num2</span>
+							<span>=</span>
+							<span>parseFloat</span>
+							<span>(num2)</span>
+						</p>
+						<p class="p-5">
+							<span>results</span>
+							<span>=</span>
+							<span>num1</span>
+							<span>+</span>
+							<span>num2</span>
+						</p>
+						<p class="p-6">
+							<span>entry.value</span>
+							<span>=</span>
+							<span>results</span>
+						</p>
+						<p class="p-7">
+							<span>USER_PROCESS</span>
+							<span>=</span>
+							<span>entry.value</span>
+						</p>
+						<p>}</p>
+						<p class="p-8">
+							//Your own code implementation here...
+						</p>
+						<span>}</span>
+					</div>
+				</div>
+			</div>
+			<div id="funct-desc-equal-button" class="equalb-desc">
+				<h4>equal buttons</h4>
+				<p>
+					The equal buttons is the main focus of this calculator because it process all users input. And to get the results for every opertions that your users clicked. first you need to get the value of your input element and loop on that data, and the second is you need to extract the numbers and operators and store it to a different variables. Theres so many way on how you can do that, whether you will use an array or just a simple string variables that is easy to manipulate and access, well it's up to you on how to do that. Just focus on the goal on how to extract and manipulate your data!
+				</p>
+			</div>
+			<div id="source-code-desc" class="source-desc">
+				<h4>source code</h4>
+				<p>
+					You can get and read my source code <a href="#">Here!</a>, it's a little bit confusing first because I added some validation to it. But still it's a must try!, and also for you to understand the concepts, so you can build your own code all the way!
+				</p>
+			</div>
+		</div>
+	</section>
+	<!-- main-content -->
+
+	<section class="right-content">
+		<div class="right-heading pad-0">
+			<h4>powered by</h4>
+		</div>
+		<div class="right-items pad-0">
+			<ul>
+				<li>
+					<div class="html-text">
+						html
+						<span class="badge badge-html">100%</span>
+					</div>
+					<div class="html-info">
+						<div class="html-info-value"></div>
+					</div>
+				</li>
+				<li>
+					<div class="css-text">
+						css
+						<span class="badge badge-css">
+						100%
+					</span>
+					</div>
+					<div class="css-info">
+						<div class="css-info-value"></div>
+					</div>
+				</li>
+				<li>
+					<div class="js-text">
+						javascript
+						<span class="badge badge-js">100%</span>
+					</div>
+					<div class="js-info">
+						<div class="js-info-value"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- right-content -->
+
+</body>
+<script type="text/javascript" src="calc-funct.js"></script>
+</html>
